@@ -1,13 +1,16 @@
 package com.excelatuni.customer_relationship_management_system.model;
 
 import lombok.Data;
-
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Data
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String firstName;
     private String lastName;
@@ -15,9 +18,15 @@ public class Customer {
     private int contact;
     private int alternateContact;
     private String address;
+
+    @Enumerated(EnumType.STRING)
     private ContactMethod preferredMethod;
-    private long image;
+
+    @Lob
+    private Byte[] image;
     private Date date;
+
+    @OneToOne(fetch = FetchType.EAGER)
     private Branch branch;
 
 }
