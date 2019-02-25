@@ -1,4 +1,4 @@
-package com.excelatuni.customer_relationship_management_system.model;
+package com.excelatuni.customer_relationship_management_system.domain;
 
 import lombok.Data;
 import javax.persistence.Entity;

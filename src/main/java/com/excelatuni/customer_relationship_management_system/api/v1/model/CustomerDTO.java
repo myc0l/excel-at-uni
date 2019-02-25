@@ -1,15 +1,14 @@
-package com.excelatuni.customer_relationship_management_system.model;
+package com.excelatuni.customer_relationship_management_system.api.v1.model;
 
+import com.excelatuni.customer_relationship_management_system.domain.Branch;
+import com.excelatuni.customer_relationship_management_system.domain.ContactMethod;
 import lombok.Data;
-import javax.persistence.*;
+
 import java.util.Date;
 
-@Entity
 @Data
-public class Customer {
+public class CustomerDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -18,15 +17,9 @@ public class Customer {
     private int contact;
     private int alternateContact;
     private String address;
-
-    @Enumerated(EnumType.STRING)
     private ContactMethod preferredMethod;
-
-    @Lob
     private Byte[] image;
     private Date date;
-
-    @OneToOne(fetch = FetchType.EAGER)
     private Branch branch;
 
 }
